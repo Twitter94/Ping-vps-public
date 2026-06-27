@@ -1,11 +1,8 @@
 const ccxt = require('ccxt');
 const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
-const ccxt = require('ccxt'); // Baris 1
-const TelegramBot = require('node-telegram-bot-api'); // Baris 2
-const fs = require('fs'); // Baris 3
-const express = require('express'); // <-- TAMBAH IKI NANG BARIS 4
-const app = express(); // <-- TAMBAH IKI NANG BARIS 5
+const express = require('express');
+const app = express();
 // === BACA CONFIG.JSON PUNYA LU, TANPA DIRUBAH ===
 const config = JSON.parse(fs.readFileSync('./config.json'));
 
