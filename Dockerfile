@@ -3,6 +3,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --production
 COPY . 
-CMD ["npm"]
+CMD ["npm", "start"] 
 COPY . 
 CMD ["npm", "start"]
