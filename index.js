@@ -112,6 +112,14 @@ bot.on('callback_query', async (query) => {
     } else if (query.data === "status") {
         const text = `**STATUS BOT**\nMode: ${bot_state.mode}\nBapak: ${bot_state.bapak_status}\nLevel: ${bot_state.level}\nPnL: ${bot_state.pnl.toFixed(2)}%`;
         await bot.editMessageText(text, { chat_id: CHAT_ID, message_id: query.message_id, ...main_keyboard() });
+        // === SERVER UNTUK FLY.IO BIAR GAK SEMBURAT ===
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 8080;
 
+app.get('/', (req, res) => res.send('Bot DCA V5.2 is running!'));
 
-dca_engine();
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server nyala neng port ${PORT}`);
+  dca_engine(); // Bar bot mu jalanne neng kene
+});
