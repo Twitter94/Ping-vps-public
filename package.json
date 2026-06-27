@@ -1,0 +1,10 @@
+{
+  "name": "binance-grid-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "ccxt": "^4.0.0",
+    "node-telegram-bot-api": "^0.64.0"
+  },
+  "start": "node index.js"
+}
