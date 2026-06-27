@@ -1,7 +1,10 @@
-app = 'safana-99'
-primary_region = 'sin'
+    app = 'safana-bot-94'
+    primary_region = 'sin'
 
-[build]
+    [build]
 
-[processes]
-  app = "npm start"
+    [processes]
+      app = "npm start"
+
+    [[vm]]
+      size = "shared-cpu-1x"
