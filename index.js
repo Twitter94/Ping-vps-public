@@ -1,7 +1,11 @@
 const ccxt = require('ccxt');
 const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
-
+const ccxt = require('ccxt'); // Baris 1
+const TelegramBot = require('node-telegram-bot-api'); // Baris 2
+const fs = require('fs'); // Baris 3
+const express = require('express'); // <-- TAMBAH IKI NANG BARIS 4
+const app = express(); // <-- TAMBAH IKI NANG BARIS 5
 // === BACA CONFIG.JSON PUNYA LU, TANPA DIRUBAH ===
 const config = JSON.parse(fs.readFileSync('./config.json'));
 
@@ -101,6 +105,9 @@ bot.on('callback_query', async (query) => {
         const text = `**STATUS BOT**\nMode: ${bot_state.mode}\nBapak: ${bot_state.bapak_status}\nLevel: ${bot_state.level}\nPnL: ${bot_state.pnl.toFixed(2)}%`;
         await bot.editMessageText(text, { chat_id: CHAT_ID, message_id: query.message_id, ...main_keyboard() });
     }
+const PORT = process.env.PORT || 8080; // Baris 107
+app.get("/", (req, res) => res.send("Bot DCA is alive")); // Baris 108
+app.listen(PORT, '0.0.0.0', () => console.log(`Server on ${PORT}`)); // Baris 109
 });
 
 dca_engine();
