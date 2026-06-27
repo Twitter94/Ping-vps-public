@@ -1,11 +1,22 @@
-const ccxt = require('ccxt');
-const TelegramBot = require('node-telegram-bot-api');
-const fs = require('fs');
-const express = require('express');
-const app = express();
+1  const ccxt = require('ccxt');
+2  const TelegramBot = require('node-telegram-bot-api');
+3  const fs = require('fs');
+4  const express = require('express'); // 1 KALI TOK
+5  // === KEEP ALIVE BUAT FLY.IO, WAJIB URIP DISIK ===
+7  const app = express(); // 1 KALI TOK
+8  const PORT = process.env.PORT || 8080;
+
+9  app.get('/', (req, res) => {
+10   res.send('Bot is running');
+11 });
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server listening on port ${PORT}`);
+ });
+ // ================================================
+ // HAPUS BARIS 18 SING IKI
 // === BACA CONFIG.JSON PUNYA LU, TANPA DIRUBAH ===
 const config = JSON.parse(fs.readFileSync('./config.json'));
-
 const TELEGRAM_TOKEN = config.notifications.telegram_token;
 const CHAT_ID = config.notifications.telegram_chat_id;
 const EXCHANGE = new ccxt.binance({ 
@@ -101,10 +112,6 @@ bot.on('callback_query', async (query) => {
     } else if (query.data === "status") {
         const text = `**STATUS BOT**\nMode: ${bot_state.mode}\nBapak: ${bot_state.bapak_status}\nLevel: ${bot_state.level}\nPnL: ${bot_state.pnl.toFixed(2)}%`;
         await bot.editMessageText(text, { chat_id: CHAT_ID, message_id: query.message_id, ...main_keyboard() });
-    }
-const PORT = process.env.PORT || 8080; // Baris 107
-app.get("/", (req, res) => res.send("Bot DCA is alive")); // Baris 108
-app.listen(PORT, '0.0.0.0', () => console.log(`Server on ${PORT}`)); // Baris 109
-});
+
 
 dca_engine();
