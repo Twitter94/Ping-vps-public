@@ -1,0 +1,44 @@
+{
+  "exchange": "binance",
+  "api_key": "qJHn1V12hdrDqWtC0D1bquYenStwcM1L4P1tgOMJTRw9RkGNZe1RkxQSVCiB07Sb",
+  "api_secret": "K2lXPQxb3JQ1kd8m6GcrJI6fAjLjO5bkg0ti8Ahhl92khQS1jo8uvgsvS2suP0c5",
+  "symbol": "BTCUSDT",
+  "quote_asset": "USDT",
+  "base_order": 5,
+  "safety_orders": 7,
+  "order_scale": 1.12,
+  "step_scale": 1.0,
+  "grid_step_type": "ATR",
+  "atr_period": 14,
+  "atr_timeframe": "1h",
+  "atr_multiplier": 0.5,
+  "atr_update_time": "00:00",
+  "take_profit_multiplier": 1.5,
+  "stop_loss": 0,
+  "cut_loss_percent": 50,
+  "cut_trigger_level": 8,
+  "indicators": {
+    "ema_period": 200,
+    "ema_timeframe": "1h",
+    "drop_percent_from_T8": 1.0
+  },
+  "execution_rules": {
+    "auto_spawn_new_session": true,
+    "auto_merge_on_tp": true,
+    "reset_only_on_base_tp": true,
+    "max_sessions": 10,
+    "buy_delay_seconds": 3,
+    "sell_delay_seconds": 3,
+    "pause_on_insufficient_balance": true,
+    "resume_when_balance_ok": true,
+    "skip_to_next_level": true
+  },
+  "notifications": {
+    "telegram_token": "8734344274:AAHITAKIgzmHWIWaAPXsvuGEOcuMSVk6IAI",
+    "telegram_chat_id": "7727927470",
+    "notify_on": ["T8_trigger", "cut_50_done", "new_session_spawn"]
+  },
+  "safety": {
+    "trading_mode": "spot_only"
+  }
+}
