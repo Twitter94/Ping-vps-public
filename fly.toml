@@ -1,10 +1,23 @@
-    app = 'safana-bot-94'
-    primary_region = 'sin'
+# fly.toml app configuration file generated for safana-bot-94 on 2026-06-27T12:29:54Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-    [build]
+app = 'safana-bot-94'
+primary_region = 'sin'
 
-    [processes]
-      app = "npm start"
+[build]
 
-    [[vm]]
-      size = "shared-cpu-1x"
+[processes]
+  app = 'npm start'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  size = 'shared-cpu-1x'
