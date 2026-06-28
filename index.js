@@ -12,8 +12,9 @@
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server listening on port ${PORT}`);
- });
-
+ 
+   
+});
 // === AMBIL DARI SECRETS FLY.IO ===
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -67,8 +68,8 @@ async function dca_engine() {
             bot_state.bapak_status = "-50%";
             await EXCHANGE.close();
             await bot.sendMessage(CHAT_ID, "🚨 BAPAK AMBRUK -50% 🚨\nPencet tombol CUT buat panggil Anak.", main_keyboard());
+        
         }
-
         if (bot_state.pnl >= 5) {
             bot_state.bapak_tp = true;
             if (bot_state.mode === "STOP") {
