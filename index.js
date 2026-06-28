@@ -63,3 +63,7 @@ bot.on ( ' callback_query' , async ( query ) = > {
         const  text = `**STATUS BOT** \n Mode: ${ bot_state . mode } \n Bapak: ${ bot_state . bapak_status } \n Level: ${ bot_state . level } \n PnL: ${ bot_state . pnl . toFixed ( 2 ) } %` ;
         await  bot.editMessageText ( text , { chat_id : CHAT_ID , message_id : query.message_id , ... main_keyboard ( ) } ) ;​​​  
     
+// === NYALAKAN BOT ===
+bot.on('polling_error', (error) => console.log(error));
+bot.launch();
+console.log('Bot Safana wes urip neng Fly.io!');
