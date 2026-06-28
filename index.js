@@ -13,17 +13,15 @@
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server listening on port ${PORT}`);
  });
- // ================================================
- // HAPUS BARIS 18 SING IKI
-// === BACA CONFIG.JSON PUNYA LU, TANPA DIRUBAH ===
-const config = JSON.parse(fs.readFileSync('./config.json'));
-const TELEGRAM_TOKEN = config.notifications.telegram_token;
-const CHAT_ID = config.notifications.telegram_chat_id;
-const EXCHANGE = new ccxt.binance({ 
-    apiKey: config.api_key, 
-    secret: config.api_secret, 
-    enableRateLimit: true,
-    options: { defaultType: 'spot' }
+
+// === AMBIL DARI SECRETS FLY.IO ===
+const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const EXCHANGE = new ccxt.binance({
+  apiKey: process.env.BINANCE_API_KEY,
+  secret: process.env.BINANCE_SECRET_KEY,
+  enableRateLimit: true,
+  options: { defaultType: 'spot' }
 });
 
 // === STATE BOT SAMA PERSIS KAYA PUNYA LU ===
