@@ -13,7 +13,7 @@
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server listening on port ${PORT}`);
  
-    options: { defaultType: 'spot' }
+   
 });
 // === AMBIL DARI SECRETS FLY.IO ===
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
